@@ -109,3 +109,11 @@ for i in indices:
 #cv2.imwrite("object-detection.jpg", image)
 #cv2.destroyAllWindows()
 cv2.imwrite("object-detection.jpg", image)
+
+
+from collections import Counter
+
+detected_labels = [classes[class_id] for class_id in class_ids]
+print("\n🧾 Detected Object Counts:")
+print(Counter(detected_labels))
+

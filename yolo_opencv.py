@@ -111,9 +111,17 @@ for i in indices:
 cv2.imwrite("object-detection.jpg", image)
 
 
+
 from collections import Counter
 
-detected_labels = [classes[class_id] for class_id in class_ids]
+final_labels = []
+for i in indices:
+    try:
+        i = i[0]  # for numpy arrays
+    except:
+        pass
+    final_labels.append(classes[class_ids[i]])
+
 print("\n🧾 Detected Object Counts:")
-print(Counter(detected_labels))
+print(Counter(final_labels))
 
